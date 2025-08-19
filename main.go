@@ -2,12 +2,18 @@ package main
 
 import (
 	"fmt"
-
 	"github.com/sinclare210/Note-Taking-App/Note"
+	"github.com/sinclare210/Note-Taking-App/Todo"
 )
 
 func main() {
 	title, content := GetNoteData()
+
+	text := GetTodoData()
+	userTodo, err := todo.New(text)
+
+	userTodo.Display()
+	userTodo.Save()
 
 	userNote, err := note.New(title, content)
 	if err != nil {
